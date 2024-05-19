@@ -1,3 +1,2 @@
 # ACLHacks2024
-C.I.A
-Cyberbully Incineration Agent
+Cyberbully Incineration Agent (C.I.A)
