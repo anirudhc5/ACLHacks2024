@@ -16,7 +16,7 @@ Our front-end was built on Visual Studio Code using Flask, HTML, CSS, and JavaSc
 ## Challenges we ran into
 Some challenges we faced mostly had to do with successfully fine-tuning the large language model (LLM) and connecting the back-end to the front-end. 
 
-Fine-tuning took a long time especially because both the model and the .csv file were so large. To quantify, our model compressed into a .zip file took up about 440 MB of data, and our .csv file was thousands of rows long. Successfully fitting the .csv file into the pre-existing model would have taken about 21 hours per epoch, for 5 epochs, adding up to almost 4 days of training alone. To address this, we altered our .csv file to highlight the absolute clearest examples of what is cyberbullying and what isn't cyberbullying, while also working within the time constraint.
+Fine-tuning took a long time especially because both the model and the .csv file were so large. To quantify, our model compressed into a .zip file took up about 440 MB of data, and our .csv file was thousands of rows long.
 
 Not only that, connecting to front end was a huge problem. Tensorflow was not properly imported on vscode, and we had to install ten different python versions to get it to work. 
 
