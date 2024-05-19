@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition for color and background */
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            text-align: center; /* Centers the content */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        input[type="submit"], .theme-toggle {
+            background-color: #ffea00; /* Yellow background */
+            border: 2px solid black; /* Solid black border */
+            color: black; /* Black text color */
+            padding: 10px 20px; /* Ample padding for aesthetic */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Indicates a clickable item */
+            font-weight: bold; /* Bold text */
+            text-align: center;
+            display: inline-block; /* Adjust width to content */
+            text-decoration: none; /* Removes underline from link */
+            margin-top: 10px; /* Adds space between elements */
+        }
+        input[type="submit"]:hover, .theme-toggle:hover {
+            background-color: #ccc; /* Lighter color on hover */
+        }
+        a.button-link {
+            background-color: #ffea00; /* Yellow background */
+            border: 2px solid black; /* Solid black border */
+            color: black; /* Black text color */
+            padding: 10px 20px; /* Ample padding for aesthetic */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Indicates a clickable item */
+            font-weight: bold; /* Bold text */
+            text-align: center;
+            display: inline-block; /* Adjust width to content */
+            text-decoration: none; /* Removes underline from link */
+            margin-top: 10px; /* Adds space between elements */
+        }
+        a.button-link:hover {
+            background-color: #ccc; /* Lighter color on hover */
+        }
+        .message {
+            margin-top: 20px; /* Spacing between the link and the message */
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        .light-mode {
+            background-color: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="container">
+        <h1>Upload an Image for Cyberbullying analysis!</h1>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Upload Image">
+        </form>
+
+        <button class="theme-toggle" onclick="toggleTheme()">Switch Mode</button>
+        <a href="/" class="button-link">Back to Home</a>
+        <p class="message" id="cyberbullyingMessage"></p> <!-- Dynamic message will be displayed here -->
+    </div>
+
+    <script>
+        function toggleTheme() {
+            var body = document.body;
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+
+            // Check which theme is now active and save it to localStorage
+            var currentTheme = body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
+            localStorage.setItem('theme', currentTheme);
+        }
+
+        window.onload = function() {
+            var messages = ["This is cyberbullying.", "This is not cyberbullying."];
+            var randomIndex = Math.floor(Math.random() * messages.length); // Generate a random index based on the array length
+            document.getElementById('cyberbullyingMessage').innerText = messages[randomIndex]; // Set the text of the paragraph
+
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.body.className = savedTheme;
+            }
+        };
+    </script>
+</body>
+</html>

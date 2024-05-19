@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%; /* Ensure body and html take full height */
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            height: 50px;
+            line-height: 50px;
+            width: 100%;
+            position: fixed; /* Fix navbar at the top */
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Ensure it’s above other content */
+        }
+        .navbar a, .navbar button {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 700;
+        }
+        .navbar button {
+            outline: none;
+        }
+        .navbar a:hover, .navbar button:hover {
+            background-color: #ffea00;
+            color: black;
+        }
+        .navbar > div, .navbar a {
+            float: left;
+        }
+        .navbar > div.right {
+            float: right;
+        }
+        .dark-mode .navbar {
+            background-color: #1a1a1a;
+        }
+        .dark-mode .navbar a, .dark-mode .navbar button {
+            color: #e6e6e6;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        .light-mode {
+            background-color: #fff;
+            color: #000;
+        }
+        .container {
+            display: flex;
+            flex-direction: column; /* Stack chunks vertically */
+            align-items: flex-start; /* Align items to the start */
+            height: 100vh;
+            width: 100%; /* Full width */
+            padding-top: 60px; /* Adjust for fixed navbar */
+            margin-top: 20px; /* Add margin to move the content down */
+        }
+        .chunk {
+            display: flex;
+            margin-bottom: 50px; /* Space between chunks */
+        }
+        .left-column, .right-column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .left-column {
+            margin-left: 20px; /* Space from left side */
+        }
+        .right-column {
+            margin-left: auto; /* Push the right column to the far right */
+            margin-right: 20px; /* Space from right side */
+        }
+        .column h1 {
+            margin: 0;
+        }
+        .image-container {
+            text-align: left; /* Align text to the left */
+        }
+        .image-container img {
+            max-width: 100%; /* Make sure the image is responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .image-container p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="navbar">
+        <a href="/upload">Upload</a>
+        <div class="right">
+            <button onclick="location.href='/'">Logout</button>
+        </div>
+    </div>          
+    <div class="container">
+        <!-- First Chunk on the left -->
+        <div class="chunk left-column">
+            <h1>Welcome!</h1>
+            <div class="image-container">
+                <img src="templates/wow.jpg">
+                <p>Here is some text below the image.</p>
+            </div>
+        </div>
+
+        <!-- Second Chunk on the right -->
+        <div class="chunk right-column">
+            <h1>Welcome Again!</h1>
+            <div class="image-container">
+                <img src="templates/cool.jpg">
+                <p>Here is some more text below another image.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.body.className = savedTheme;
+                console.log('Loaded theme:', savedTheme); // Debugging output
+            } else {
+                console.log('No theme saved in localStorage');
+            }
+        };
+    </script>
+</body>
+</html>
