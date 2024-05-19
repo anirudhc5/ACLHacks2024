@@ -1,7 +1,7 @@
 # ACLHacks2024
 
 ## Why combating cyberbullying matters
-Cyberbullying is a terrible thing that occurs online where a person is attacked for a certain reason. The rise of cyberbullying has led to Mental Health problems, impacts on education, and social anxiety for those getting bullied.
+Cyberbullying is a terrible thing that occurs online where a person is attacked for a certain reason. The rise of cyberbullying has led to Mental Health problems, impacts on education, and social anxiety for those getting bullied. Additionally, many cyberbullying social media posts don't get flagged for cyberbullying before getting posted. This model addresses just that.
 
 ## What CI.AI does
 CI.AI takes screenshots and runs it through our AI model, which has been trained to identify cyberbullying in messages, and decides whether it is cyberbullying or not.
